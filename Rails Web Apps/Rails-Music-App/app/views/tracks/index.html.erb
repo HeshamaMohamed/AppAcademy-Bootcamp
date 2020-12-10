@@ -1,0 +1,11 @@
+<h1>tracks upon tracks!</h1>
+
+<ul>
+  <% @tracks.each do |track| %>
+    <li><a href="<%= track_url(track) %>"> <%= track.id %> " : " <%= track.title %> </a></li>
+  <% end %>
+</ul>
+
+
+<br><br><br>
+<a href="<%= bands_url %>">View bands</a>

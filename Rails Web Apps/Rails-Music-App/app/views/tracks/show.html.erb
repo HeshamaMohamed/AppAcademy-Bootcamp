@@ -1,0 +1,37 @@
+<%# <h1>Hello  %>
+<%#= current_user.name %>
+<%# </h1> %>
+
+<%= ugly_lyrics(@track.lyrics) %>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  <% [:title, :ord, :album_id, :regular_or_bonus].each do |attr_name| %>
+    <tr>
+      <td><%= attr_name %></td>
+      <td><%= @track.send(attr_name) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<% if @track.note %>
+  <%= render partial: "notes/note.html.erb", note: @track.note %>
+<% else %>
+  <p>Note : <%= render "notes/form", track: @track %> </p>
+<% end %>
+
+  <%#= button_to 'Add Note', render: 'notes/form.html.erb', track: @track , method: :post %>
+
+<a href="<%= edit_track_url(@track) %>">Edit <%= @track.title %></a>
+<br><br>
+<%= button_to "Delete track", track_url(@track), method: :delete %>
+<br><br>
+<%= button_to "View tracks", tracks_url, method: :get %>
+<br><br>
+<%= button_to "View album", album_url(@track.album), method: :get %>
+

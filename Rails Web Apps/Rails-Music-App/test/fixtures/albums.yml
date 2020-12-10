@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 2020-10-31
+  type: false
+
+two:
+  title: MyString
+  year: 2020-10-31
+  type: false

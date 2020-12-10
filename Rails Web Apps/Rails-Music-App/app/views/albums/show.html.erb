@@ -1,0 +1,26 @@
+<%# <h1>Hello  %>
+<%#= current_user.name %>
+<%# </h1> %>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  <% [:title, :year, :location, :band_id].each do |attr_name| %>
+    <tr>
+      <td><%= attr_name %></td>
+      <td><%= @album.send(attr_name) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<a href="<%= edit_album_url(@album) %>">Edit <%= @album.title %></a>
+<br><br>
+<%= button_to "Delete album", album_url(@album), method: :delete %>
+<br><br>
+<%= button_to "View albums", albums_url, method: :get %>
+<br><br>
+<%= button_to "View Band", band_url(@album.band), method: :get %>
+<br><br>
+<a href="<%= new_album_track_url(@album) %>">Create track</a>

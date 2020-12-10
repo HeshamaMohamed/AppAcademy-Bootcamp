@@ -1,0 +1,28 @@
+<%# <h1>Hello  %>
+<%#= current_user.name %>
+<%# </h1> %>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  <% [:name].each do |attr_name| %>
+    <tr>
+      <td><%= attr_name %></td>
+      <td><%= @band.send(attr_name) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<a href="<%= edit_band_url(@band) %>">Edit <%= @band.name %></a>
+<br><br>
+<%= button_to "Delete", band_url(@band), method: :delete %>
+<br><br>
+<%= button_to "View bands", bands_url, method: :get %>
+
+
+
+<a href="<%= new_band_album_url(@band) %>">Create album</a>
+
+<%# Update the Band show page to list/link to all of the band's albums and create a new one %>
